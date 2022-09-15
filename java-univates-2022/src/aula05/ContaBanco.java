@@ -58,7 +58,7 @@ public class ContaBanco {
     }
     
     public boolean sacar(double valor){
-        if(this.saldo >= valor){
+        if((this.saldo + this.chequeEspecial) >= valor){
             this.saldo -= valor;
             return true;
         }else{
@@ -77,5 +77,12 @@ public class ContaBanco {
         }
         
     }
+
+    @Override
+    public String toString() {
+        return this.numero + " - " + this.nomeTitular;
+    }
+    
+    
     
 }
