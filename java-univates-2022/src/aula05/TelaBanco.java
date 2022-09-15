@@ -1,6 +1,7 @@
 package aula05;
 
 import ferramentas.CaixaDeDialogo;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -11,41 +12,41 @@ public class TelaBanco extends javax.swing.JFrame {
 
     ContaBanco objConta1;
     ContaBanco objConta2;
-    DefaultComboBoxModel modelContas;     
+    DefaultComboBoxModel modelContas;
         
     public TelaBanco() {
         initComponents();     
         
-        objConta1 = new ContaBanco();
-        objConta1.setNomeTitular("Jonas Dhein");
-        objConta1.setNumero(111);
-        objConta1.setSaldo(300);        
-        objConta1.setChequeEspecial(1000);
+        ArrayList<ContaBanco> listaContas = new ArrayList<>();
         
-        objConta2 = new ContaBanco();
-        objConta2.setNomeTitular("Leila Lopes");
-        objConta2.setNumero(222);
-        objConta2.setSaldo(900);
-        objConta2.setChequeEspecial(2000);
+        ContaBanco objConta = new ContaBanco();
+        objConta.setNomeTitular("Jonas Dhein");
+        objConta.setNumero(111);
+        objConta.setSaldo(300);        
+        objConta.setChequeEspecial(1000);
+        
+        listaContas.add(objConta);
+        
+        objConta = new ContaBanco();
+        objConta.setNomeTitular("Leila Lopes");
+        objConta.setNumero(222);
+        objConta.setSaldo(900);
+        objConta.setChequeEspecial(2000);
+        
+        listaContas.add(objConta);
         
         modelContas = new DefaultComboBoxModel();
-        modelContas.addElement(objConta1);
-        modelContas.addElement(objConta2);
+        for (ContaBanco objeto : listaContas) {
+            modelContas.addElement(objeto);
+        }
         cmbContas1.setModel(modelContas);        
         
         modelContas = new DefaultComboBoxModel();
-        modelContas.addElement(objConta1);
-        modelContas.addElement(objConta2);
+        for (ContaBanco objeto : listaContas) {
+            modelContas.addElement(objeto);
+        }   
         cmbContas2.setModel(modelContas);
 
-        
-        
-        //preencher os campos na tela
-        lblNomeConta2.setText("Nome: " + objConta2.getNomeTitular());
-        lblNumeroConta2.setText("Conta: " + objConta2.getNumero());        
-        lblChequeEspecialConta2.setText("Cheque: " + objConta2.getChequeEspecial());
-
-        //atualizarSaldos();
         
     }
     
@@ -180,6 +181,12 @@ public class TelaBanco extends javax.swing.JFrame {
         cmbContas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbContas1ActionPerformed(evt);
+            }
+        });
+
+        cmbContas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbContas2ActionPerformed(evt);
             }
         });
 
@@ -376,6 +383,17 @@ public class TelaBanco extends javax.swing.JFrame {
         lblSaldoConta1.setText("Saldo: R$ " + objConta1.getSaldo());
         txtValorConta1.setText("");
     }//GEN-LAST:event_cmbContas1ActionPerformed
+
+    private void cmbContas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbContas2ActionPerformed
+        objConta2 = (ContaBanco) cmbContas2.getSelectedItem();
+        
+        //preencher os campos na tela
+        lblNomeConta2.setText("Nome: " + objConta2.getNomeTitular());
+        lblNumeroConta2.setText("Conta: " + objConta2.getNumero());        
+        lblChequeEspecialConta2.setText("Cheque: " + objConta2.getChequeEspecial());
+        lblSaldoConta2.setText("Saldo: R$ " + objConta2.getSaldo());
+        txtValorConta2.setText("");
+    }//GEN-LAST:event_cmbContas2ActionPerformed
 
     /**
      * @param args the command line arguments
