@@ -83,6 +83,4 @@ public class ContaBanco {
         return this.numero + " - " + this.nomeTitular;
     }
     
-    
-    
 }

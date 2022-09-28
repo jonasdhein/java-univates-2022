@@ -31,7 +31,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="lblTitulo" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblNomeConta1" alignment="0" pref="140" max="32767" attributes="0"/>
                       <Component id="lblSaldoConta1" alignment="0" max="32767" attributes="0"/>
@@ -42,9 +42,9 @@
                       <Component id="btnTransferirConta1" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblChequeEspecialConta1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="cmbContas1" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                  <Component id="cmbContas1" min="-2" pref="260" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="198" max="32767" attributes="0"/>
+              <EmptySpace pref="163" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblNomeConta2" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
