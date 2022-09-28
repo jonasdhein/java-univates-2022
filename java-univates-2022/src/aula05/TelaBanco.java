@@ -283,7 +283,6 @@ public class TelaBanco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSacarConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarConta1ActionPerformed
-        
         try{
             double valorSaque = Double.parseDouble(txtValorConta1.getText());
             
@@ -322,9 +321,16 @@ public class TelaBanco extends javax.swing.JFrame {
     private void btnTransferirConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirConta1ActionPerformed
         //transferir da conta 1 para a conta 2
         double valorTransferencia = Double.parseDouble(txtValorConta1.getText());
-        if(objConta1.transferir(valorTransferencia, objConta2)){
-            atualizarSaldos();
-            CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+        
+        boolean retorno = CaixaDeDialogo.obterinstancia().pedirConfirmacao(
+                "Deseja transferir R$ " + valorTransferencia +
+                " para a conta " + objConta2.getNomeTitular() + 
+                "?", "Confirmação", 'p');
+        if(retorno){
+            if(objConta1.transferir(valorTransferencia, objConta2)){
+                atualizarSaldos();
+                CaixaDeDialogo.obterinstancia().exibirMensagem("Operação realizada com sucesso", 'i');
+            }
         }
     }//GEN-LAST:event_btnTransferirConta1ActionPerformed
 
