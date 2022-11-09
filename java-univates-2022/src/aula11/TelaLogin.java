@@ -8,6 +8,7 @@ package aula11;
 import controladores.UsuarioController;
 import ferramentas.CaixaDeDialogo;
 import ferramentas.Conexao;
+import modelos.Usuario;
 
 /**
  *
@@ -42,12 +43,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setText("Usuário");
 
         jLabel2.setText("Senha");
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
 
         btnEntrar.setText("ENTRAR");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,18 +84,18 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
+        //Dentro do controller fica toda a lógica de conexão com o
+        //banco de dados da classe usuário
         UsuarioController controller = new UsuarioController();
         
         String user = txtUsuario.getText();
         String pass = txtSenha.getText();
         
-        if(controller.login(user, pass)){
+        boolean existe = controller.login(user, pass);
+        
+        if(existe){
             CaixaDeDialogo.obterinstancia().exibirMensagem("Usuário validado!");
         }else{
             CaixaDeDialogo.obterinstancia().exibirMensagem("Usuário inválido!");
